@@ -1,10 +1,11 @@
 <template>
-  <h1>{{ msg }}</h1>
-  <button @click="count++">count is: {{ count }}</button>
-  <p>
-    あああ <code>components/HelloWorld.vue</code> to test hot module
-    replacement.
-  </p>
+  <div id="list-rendering">
+    <ol>
+      <li v-for="todo in todos" :key="todo.text">
+        {{ todo.text }}
+      </li>
+    </ol>
+  </div>
 </template>
 
 <script>
@@ -15,8 +16,20 @@ export default {
   },
   data() {
     return {
-      count: 0,
+      message: 'Hello Vue.js!',
+      seen: false,
+      todos: [
+        { text: 'Learn JavaScript' },
+        { text: 'Learn Vue' },
+        { text: 'Build something awesome' },
+      ],
     };
+  },
+  mounted() {},
+  methods: {
+    reverseMessage() {
+      this.message = this.message.split('').reverse().join('');
+    },
   },
 };
 </script>
