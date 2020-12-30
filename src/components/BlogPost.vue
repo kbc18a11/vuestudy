@@ -1,12 +1,9 @@
 <template>
   <div class="blog-post">
     <h4>{{ title }}</h4>
-    <button @click="$emit('ositayatunani', id)">Enlarge text</button>
+    <button @click="onClickId">Enlarge text</button>
   </div>
-  <input
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
-  />
+  <input :value="searchText" @input="changeText" />
 </template>
 
 <script>
@@ -24,9 +21,17 @@ export default {
       type: String,
       default: '',
     },
-    modelValue: '',
   },
-  emits: ['ositayatunani'],
+  emits: ['ositayatunani', 'searchTextUpdate'],
+  computed: {
+    onClickId: function (e) {
+      this.$emit('ositayatunani', this.id);
+    },
+    changeText: function (e) {
+      console.log(e);
+      this.$emit('searchTextUpdate', e.target.value);
+    },
+  },
 };
 </script>
 
