@@ -9,7 +9,7 @@
     searchText=""
     @searchTextUpdate="searchText = $event"
   />
-  <alert-box>aaa</alert-box>
+  <alert-box anman="srth" />
   <p>{{ ositayatu }}</p>
   <p>{{ searchText }}</p>
 </template>
